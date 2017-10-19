@@ -1,0 +1,37 @@
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { campuses, fetchCampuses, fetchCampus } from "../../reducers/campuses";
+import CampusItem from './CampusItem';
+
+class CampusList extends Component {
+
+ componentDidMount() {
+    this.props.loadCampuses();
+    this.props.displayCampuses();
+  }
+
+ render () {
+    const { campuses } = this.props;
+    return (
+      <div>
+          <h1>List of campuses</h1>
+          {
+            campuses &&
+            campuses.map(campus => (<CampusItem key={campus.id} campus={campus} />))
+          }
+      </div>
+    );
+  }
+}
+
+const mapState = state => ({
+  campuses: state.campuses
+});
+
+const mapDispatch = dispatch => ({
+  loadCampuses: () => dispatch(fetchCampuses()),
+  displayCampuses: () => dispatch(fetchCampus())
+});
+
+export default connect(mapState, mapDispatch)(CampusList);

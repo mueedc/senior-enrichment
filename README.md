@@ -1,4 +1,4 @@
-# Senior Enrichment Project
+ # Senior Enrichment Project
 
 Make a thing!
 

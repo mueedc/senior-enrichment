@@ -12,7 +12,11 @@ const Campus = require('./campus');
 const Student = require('./student');
 
 Student.belongsTo(Campus);
-Campus.hasMany(Student);
+Campus.hasMany(Student, {
+  foreignKey: 'campusId',
+  onDelete: 'cascade',
+  hooks: true
+});
 
 module.exports = {
   db,

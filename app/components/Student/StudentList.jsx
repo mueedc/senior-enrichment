@@ -26,7 +26,7 @@ class StudentList extends Component {
 
   onSubmit(event) {
     event.preventDefault();
-    const student = { name: event.target.name.value };
+    const student = { name: event.target.name.value, campusId: event.target.campus_id.value };
     this.props.addStudent(student);
   }
 
@@ -70,19 +70,19 @@ class StudentList extends Component {
         <ul className="list-inline">
           <li>
             <input
-              name="title"
+              name="name"
               type="text"
               className="form-like large-font"
               placeholder="Name"
             />
           </li>
           <li>
-            <select name="student_name" defaultValue="" required>
+            <select name="campus_id" defaultValue="" required>
               <option value="" disabled>
                 (Select Campus)
               </option>
               {campuses.map(campus => (
-                <option key={campus.id} value={campus.id}>
+                <option key={campus.name} value={campus.id}>
                   {campus.name}
                 </option>
               ))}

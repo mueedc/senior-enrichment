@@ -8,7 +8,6 @@ class CampusList extends Component {
 
  componentDidMount() {
     this.props.loadCampuses();
-    this.props.displayCampuses();
   }
 
  render () {
@@ -25,13 +24,10 @@ class CampusList extends Component {
   }
 }
 
-const mapState = state => ({
-  campuses: state.campuses
-});
+const mapState = ({ campuses }) => ({ campuses });
 
 const mapDispatch = dispatch => ({
-  loadCampuses: () => dispatch(fetchCampuses()),
-  displayCampuses: () => dispatch(fetchCampus())
+  loadCampuses: () => dispatch(fetchCampuses())
 });
 
 export default connect(mapState, mapDispatch)(CampusList);

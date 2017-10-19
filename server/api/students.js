@@ -35,8 +35,8 @@ router.put('/:id', (req, res, next) => {
     .catch(next);
 });
 
-router.delete('/', (req, res, next) => {
-  Students.destroy({ where: req.params.id })
+router.delete('/:id', (req, res, next) => {
+  Students.destroy({ where: {id: req.params.id } })
     .then(_ => res.sendStatus(204))
     .catch(next);
 });

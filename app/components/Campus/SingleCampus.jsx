@@ -7,18 +7,16 @@ class SingleCampus extends Component {
     super(props);
   }
 
-
-
   render() {
-    const {campus, students} = this.props;
+    const { campus, students } = this.props;
     return (
       <div>
         <h3>{campus.name}</h3>
         <ul>
-          {
-            campus &&
-            campus.students.map(student => <li key={student.id}>{`${student.id} - ${student.name}`}</li>)
-          }
+          {campus &&
+            campus.students.map(student => (
+              <li key={student.id}>{`${student.id} - ${student.name}`}</li>
+            ))}
         </ul>
       </div>
     );
@@ -33,6 +31,8 @@ const mapState = ({ campuses, students }, ownProps) => {
   };
 };
 
-const mapDispatch = ({ fetchCampus }) => ({ fetchCampus });
+const mapDispatch = ({ fetchCampus }) => ({
+  fetchCampus
+});
 
 export default connect(mapState, mapDispatch)(SingleCampus);

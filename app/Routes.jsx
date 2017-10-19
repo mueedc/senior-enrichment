@@ -24,6 +24,7 @@ class Routes extends Component {
             <Route exact path="/campus" component={CampusList} />
             <Route path="/campus/:id" component={SingleCampus} />
             <Route exact path="/student" component={StudentList} />
+            <Route component={CampusList} />
           </Switch>
         </Home>
       </Router>

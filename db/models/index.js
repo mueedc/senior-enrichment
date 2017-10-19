@@ -11,7 +11,10 @@ const db = require('../');
 const Campus = require('./campus');
 const Student = require('./student');
 
-Student.belongsTo(Campus);
+Student.belongsTo(Campus, {
+  foreignKey: {allowNull: false},
+  onDelete: 'cascade'
+});
 Campus.hasMany(Student, {
   foreignKey: 'campusId',
   onDelete: 'cascade',

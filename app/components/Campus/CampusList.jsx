@@ -7,7 +7,7 @@ import CampusItem from './CampusItem';
 class CampusList extends Component {
 
  componentDidMount() {
-    this.props.loadCampuses();
+    this.props.fetchCampuses();
   }
 
  render () {
@@ -26,8 +26,6 @@ class CampusList extends Component {
 
 const mapState = ({ campuses }) => ({ campuses });
 
-const mapDispatch = dispatch => ({
-  loadCampuses: () => dispatch(fetchCampuses())
-});
+const mapDispatch = { fetchCampuses };
 
 export default connect(mapState, mapDispatch)(CampusList);

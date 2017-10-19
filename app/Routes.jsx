@@ -9,8 +9,7 @@ import CampusList from "./components/Campus/CampusList";
 import StudentList from "./components/Student/StudentList";
 import { fetchCampuses } from "./reducers/campuses";
 import { fetchStudents } from "./reducers/students";
-import CampusDetail from './components/Campus/CampusDetail';
-import StudentDetail from './components/Student/StudentDetail';
+import SingleCampus from './components/Campus/SingleCampus';
 
 class Routes extends Component {
   componentDidMount() {
@@ -23,6 +22,7 @@ class Routes extends Component {
         <Home>
           <Switch>
             <Route exact path="/campus" component={CampusList} />
+            <Route path="/campus/:id" component={SingleCampus} />
             <Route exact path="/student" component={StudentList} />
           </Switch>
         </Home>

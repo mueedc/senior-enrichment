@@ -13,7 +13,7 @@ router.get('/', (req, res, next) => {
 
 router.get('/:id', (req, res, next) => {
   Students.findById(req.params.id)
-    .then(students => (!student ? res.sendStatus(404) : res.json(students)))
+    .then(student => (!student ? res.sendStatus(404) : res.json(student)))
     .catch(next);
 });
 

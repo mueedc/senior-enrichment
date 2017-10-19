@@ -66,7 +66,7 @@ class StudentList extends Component {
   renderNewStudentWidget() {
     const { campuses } = this.props;
     return (
-      <form onSubmit={this.onSubmit} className="list-group-item student-item">
+      <form onSubmit={this.onSubmit} className="list-group-item student-item" name="Add a new student">
         <ul className="list-inline">
           <li>
             <input
